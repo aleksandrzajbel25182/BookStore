@@ -1,4 +1,7 @@
+using BookStore.Application.Services;
+using BookStore.Core.Abstractions;
 using BookStore.DataAccess;
+using BookStore.DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +20,9 @@ builder.Services.AddDbContext<BookStoreDbContext>(
 
     }
     );
+
+builder.Services.AddScoped<IBooksServices, BooksServices>();
+builder.Services.AddScoped<IBooksRepository, BooksRepository>();
 
 var app = builder.Build();
 
