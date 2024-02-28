@@ -1,4 +1,5 @@
-﻿using BookStore.Core.Abstractions;
+﻿using BookStore.Api.Contracts;
+using BookStore.Core.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Api.Controllers

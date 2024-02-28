@@ -1,4 +1,4 @@
-﻿namespace BookStore.Api.Controllers
+﻿namespace BookStore.Api.Contracts
 {
     public record BookResponce(
         Guid id,
