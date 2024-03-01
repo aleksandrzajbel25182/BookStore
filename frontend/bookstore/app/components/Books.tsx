@@ -4,9 +4,11 @@ import { title } from "process"
 import Button from "antd/es/button/button"
 
 interface Props {
-    books: Book[]
+    books: Book[];
+    handelDelete: (id: string) => void;
+    handelOpen: (book: Book) => void;
 }
-export const Books = ({ books }: Props) => {
+export const Books = ({ books, handelDelete, handelOpen }: Props) => {
     return (
         <div className="cards">
             {books.map((book: Book) => (
@@ -17,8 +19,12 @@ export const Books = ({ books }: Props) => {
                 >
                     <p>{book.description}</p>
                     <div className="card__buttons">
-                        <Button>Edit</Button>
-                        <Button>Delete</Button>
+                        <Button onClick={() => handelOpen(book)}> Edit</Button>
+                        <Button
+                            onClick={() => handelDelete(book.id)}
+                            danger
+                            style={{ flex: 1 }}
+                        >Delete</Button>
                     </div>
                 </Card>
             ))}
